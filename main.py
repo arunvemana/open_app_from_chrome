@@ -22,7 +22,7 @@ class Main:
     def get_all_apps(self):
         data = subprocess.Popen(['powershell', 'get-StartApps'], stdout=subprocess.PIPE)
         raw_data = data.communicate()[0]
-        raw_data = raw_data.decode('UTF-8')
+        raw_data = raw_data.decode('UTF-8', errors='ignore')
         return raw_data
 
     def load_data(self, raw_data: str):
